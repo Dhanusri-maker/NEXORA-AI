@@ -16,6 +16,8 @@ const app = express();
 // MIDDLEWARE
 // =====================================================
 
+
+
 app.use(
   cors({
     origin: [
@@ -28,6 +30,7 @@ app.use(
 );
 
 
+app.use(cors());
 app.use(
   express.json({
     limit: "20mb",
