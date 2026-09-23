@@ -22,9 +22,11 @@ app.use(
       "http://localhost:5173",
       "https://neexora-ai.netlify.app"
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+app.options("*",cors());
 
 app.use(
   express.json({
