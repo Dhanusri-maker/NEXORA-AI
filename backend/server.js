@@ -15,24 +15,22 @@ const app = express();
 // =====================================================
 // MIDDLEWARE
 // =====================================================
-
-
-
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://neexora-ai.netlify.app"
-    ],
+    origin: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options(/.*/, cors());
+
 app.use(
-express.json({
-  limit: "20mb",
+  express.json({
+    limit: "20mb",
   })
 );
+
 
 // =====================================================
 // HOME
