@@ -1038,7 +1038,7 @@ function App() {
 
       const response =
         await axios.post(
-          "https://nexora-ai-0h7b.onrender.com/api/chat",
+          "https://nexora-ai-oh7b.onrender.com/api/chat",
           {
             message:
               userText ||
