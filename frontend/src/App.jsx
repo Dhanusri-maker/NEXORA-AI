@@ -57,6 +57,8 @@ function App() {
 
   const [showUpgrade, setShowUpgrade] = useState(false);
 
+const [mobileMenuOpen, setMobileMenuOpen] = useState(false);  
+
   const fileInputRef = useRef(null);
 
   const messagesEndRef = useRef(null);
@@ -1539,7 +1541,11 @@ function App() {
           SIDEBAR
       ================================= */}
 
-      <aside className="sidebar">
+           <aside
+  className={`sidebar ${
+    mobileMenuOpen ? "mobile-sidebar-open" : ""
+  }`}
+>
 
 
         {/* BRAND */}
@@ -1561,8 +1567,26 @@ function App() {
             </span>
 
           </div>
+                    <button
+  type="button"
+  className="mobile-menu-btn"
+  onClick={() => setMobileMenuOpen(true)}
+  aria-label="Open menu"
+>
+  ☰
+</button>
+          
+                 <button
+    type="button"
+    className="mobile-sidebar-close"
+    onClick={() => setMobileMenuOpen(false)}
+    aria-label="Close menu"
+  >
+    ×
+  </button>
 
-        </div>
+</div>
+        
 
 
         {/* NEW CHAT */}
@@ -1751,7 +1775,7 @@ function App() {
 
         </div>
 
-      </aside>
+       </aside>
 
 
       {/* =================================
@@ -1785,7 +1809,15 @@ function App() {
             </span>
 
           </div>
-
+           
+            <button
+            type="button"
+              className="mobile-menu-btn"
+             onClick={() => setMobileMenuOpen(true)}
+             aria-label="Open menu"
+               >
+               ☰
+</button>
 
           <button
             type="button"
@@ -1794,6 +1826,8 @@ function App() {
           >
             ＋ New Chat
           </button>
+
+
 
         </header>
 

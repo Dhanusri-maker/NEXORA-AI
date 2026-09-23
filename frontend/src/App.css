@@ -72,28 +72,33 @@ button {
 ===================================================== */
 
 .sidebar {
-  width: 250px;
-  min-width: 250px;
-  height: 100vh;
+  position: fixed !important;
+  top: 0;
+  left: 0;
 
-  display: flex;
-  flex-direction: column;
+  width: 290px !important;
+  min-width: 290px !important;
+  height: 100dvh;
 
-  padding: 20px 14px 14px;
+  z-index: 1000;
+
+  padding: 16px !important;
 
   background:
     linear-gradient(
       180deg,
-      rgba(11, 25, 55, 0.98),
-      rgba(7, 18, 40, 0.98)
+      #0b1428,
+      #07101f
     );
 
-  border-right: 1px solid
-    rgba(255, 255, 255, 0.07);
+  border-right:
+    1px solid rgba(255,255,255,0.08);
 
-  overflow: hidden;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+
+  overflow-y: auto !important;
 }
-
 
 /* =====================================================
    BRAND
@@ -3498,3 +3503,247 @@ body,
     font-size: 12px;
   }
 }
+
+
+/* =====================================================
+   NEXORA MOBILE CHATGPT-STYLE SIDEBAR
+===================================================== */
+
+.mobile-menu-btn,
+.mobile-sidebar-close {
+  display: none;
+}
+
+@media (max-width: 650px) {
+
+  .mobile-menu-btn {
+    display: flex;
+
+    width: 38px;
+    height: 38px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+
+    font-size: 22px;
+  }
+
+  .sidebar {
+    position: fixed !important;
+
+    top: 0;
+    left: 0;
+
+    width: 290px !important;
+    min-width: 290px !important;
+    height: 100dvh;
+
+    z-index: 1000;
+
+    padding: 14px !important;
+
+    box-sizing: border-box;
+
+    background:
+      linear-gradient(
+        180deg,
+        #0b1428,
+        #07101f
+      );
+
+    border-right:
+      1px solid rgba(255,255,255,0.08);
+
+    transform: translateX(-105%);
+
+    transition:
+      transform 0.25s ease;
+
+    overflow-y: auto !important;
+
+    display: block !important;
+  }
+
+  .sidebar.mobile-sidebar-open {
+    transform: translateX(0) !important;
+  }
+
+  .mobile-sidebar-close {
+    display: flex;
+
+    margin-left: auto;
+
+    width: 34px;
+    height: 34px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 9px;
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+
+    font-size: 24px;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .main {
+    width: 100% !important;
+    min-width: 0;
+  }
+}
+
+/* =====================================================
+   MOBILE SIDEBAR OVERLAY
+===================================================== */
+
+.mobile-sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 650px) {
+
+  .mobile-sidebar-overlay {
+    display: block;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 900;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(2px);
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 54px;
+    padding: 0 12px;
+  }
+
+  .topbar .mobile-menu-btn {
+    flex-shrink: 0;
+  }
+
+  .topbar-title {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .topbar-title strong {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .top-new-chat {
+    display: none !important;
+  }
+}
+
+/* =====================================================
+   NEXORA - MOBILE CHAT INPUT
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .chat-container {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100% !important;
+
+    padding:
+      8px
+      10px
+      calc(10px + env(safe-area-inset-bottom)) !important;
+
+    box-sizing: border-box;
+
+    z-index: 50;
+  }
+
+  .chat-input {
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: 48px;
+    height: auto;
+
+    padding: 5px 6px;
+
+    border-radius: 16px;
+
+    box-sizing: border-box;
+  }
+
+  .chat-input input {
+    flex: 1;
+    min-width: 0;
+
+    font-size: 14px;
+  }
+
+  .attach-btn,
+  .send-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+
+    border-radius: 10px;
+  }
+
+  .input-info {
+    font-size: 7px;
+    margin-top: 4px;
+  }
+
+}
+
+/* =====================================================
+   HIDE NETLIFY BADGE ON MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .netlify-badge,
+  #netlify-badge {
+    display: none !important;
+  }
+}
+
+/* =====================================================
+   HIDE NETLIFY BADGE ON MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .netlify-badge,
+  #netlify-badge {
+    display: none !important;
+  }
+}
+
