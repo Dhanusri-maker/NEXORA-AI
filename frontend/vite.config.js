@@ -21,7 +21,7 @@ export default defineConfig({
         icons: [
           
           {
-            src: "/nexora-icon.png",
+            src: "/nexora-icon.png.jpeg",
             sizes: "512x512",
             type: "image/png",
           },
